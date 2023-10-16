@@ -15,6 +15,26 @@ dic_len_noun = dict(sorted(dic_len_noun.items()))
 
 print(f"Словарь содержит {len(list_noun)} слов", dic_len_noun)
 
+# Самые распространенные буквы в словаре
+dic_1 = {}
+all_cound_char = 0
+for i in list_noun:
+    for j in i:
+        all_cound_char += 1
+        if j not in dic_1:
+            dic_1[j] = 1
+        else:
+            dic_1[j] += 1
+# Сортировка словаря по значению
+dic_1 = dict(sorted(dic_1.items(), key=lambda x: x[1], reverse=True))
+
+print(f"Количество букв в словаре: {dic_1}")
+print(f"Всего слов: {len(list_noun)}")
+print(f"Всего букв: {all_cound_char}")
+print(f"В среднем букв в слове: {all_cound_char/len(list_noun):.2f}")
+
+
+# Работа со словами конкретной длины
 len_word = int(input("Введите количество букв в слове: "))
 
 # Отбор слов длиной {len_word} букв
